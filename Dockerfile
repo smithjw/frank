@@ -20,7 +20,7 @@ RUN    useradd -d /frank -m -s /bin/bash -U frank
 
 # Log in as hubot user and change directory
 USER    frank
-WORKDIR /frank
+WORKDIR /hubot
 
 # Install hubot
 RUN yo hubot --owner="James <james@cultureamp.com>" --name="frank" --defaults
@@ -37,12 +37,12 @@ RUN npm install hubot-gocd --save && npm install
 RUN npm install hubot-youtube --save && npm install
 
 #Activate some built-in scripts
-ADD frank/hubot-scripts.json /frank/
-ADD frank/external-scripts.json /frank/
+ADD hubot/hubot-scripts.json /hubot/
+ADD hubot/external-scripts.json /hubot/
 
 RUN npm install cheerio --save && npm install
-ADD frank/scripts/huebot-lietwerk.coffee /frank/scripts/
-ADD frank/scripts/hubot-lunch.coffee /frank/scripts/
+ADD hubot/scripts/huebot-lietwerk.coffee /hubot/scripts/
+ADD hubot/scripts/hubot-lunch.coffee /hubot/scripts/
 
 # And go
-CMD ["/bin/sh", "-c", "aws s3 cp --region ap-southeast-2 s3://franks-creds/env.sh .; . ./env.sh; bin/frank --adapter slack"]
+CMD ["/bin/sh", "-c", "aws s3 cp --region ap-southeast-2 s3://franks-creds/env.sh .; . ./env.sh; bin/hubot --adapter slack"]
