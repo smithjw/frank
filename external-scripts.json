@@ -8,13 +8,5 @@
   "hubot-maps",
   "hubot-redis-brain",
   "hubot-rules",
-  "hubot-shipit",
-  "hubot-slack",
-  "hubot-standup-alarm",
-  "hubot-auth",
-  "hubot-google-translate",
-  "hubot-auth",
-  "hubot-github",
-  "hubot-alias",
-  "hubot-youtube" 
+  "hubot-shipit"
 ]
